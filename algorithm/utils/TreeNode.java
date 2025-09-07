@@ -16,7 +16,7 @@ public class TreeNode{
             Queue<TreeNode> queue = new LinkedList<>();
             queue.offer(n);
             int i = 1;
-            while(!queue.isEmpty()){
+            while(!queue.isEmpty() && i < arr.length-1){
                 n = queue.poll();
                 if("null".equals(arr[i])){
                     n.left = null;
@@ -30,7 +30,7 @@ public class TreeNode{
                     n.right = new TreeNode(Integer.parseInt(arr[i+1]));
                     queue.offer(n.right);
                 }
-                n = n.left;
+                i += 2;
             }
         }
 
